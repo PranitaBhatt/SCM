@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCM Analytics Survey</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #004A73;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .question-card {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: #005B89;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .question-card h1 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .custom-checkbox {
+            margin-bottom: 15px;
+        }
+        .btn-next {
+            background-color: #FFDD00;
+            color: #004A73;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn-next:hover {
+            background-color: #FFC400;
+        }
+    </style>
+</head>
+<body>
+    <div class="question-card">
+        <h1>What are the main goals of Supply Chain?</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="custom-checkbox">
+                <input type="checkbox" name="option_1" id="option_1" class="form-check-input">
+                <label for="option_1" class="form-check-label">Maximizing company Sales</label>
+            </div>
+            <div class="custom-checkbox">
+                <input type="checkbox" name="option_2" id="option_2" class="form-check-input">
+                <label for="option_2" class="form-check-label">Maximizing company profits</label>
+            </div>
+            <div class="custom-checkbox">
+                <input type="checkbox" name="option_3" id="option_3" class="form-check-input">
+                <label for="option_3" class="form-check-label">Minimizing operational costs</label>
+            </div>
+            <div class="custom-checkbox">
+                <input type="checkbox" name="option_4" id="option_4" class="form-check-input">
+                <label for="option_4" class="form-check-label">Minimizing inventory costs</label>
+            </div>
+            <div class="custom-checkbox">
+                <input type="checkbox" name="option_5" id="option_5" class="form-check-input">
+                <label for="option_5" class="form-check-label">Ensuring the best service for customers</label>
+            </div>
+            <h1>Which areas of SCM do you think need improvement?</h1>
+            <div class="custom-checkbox">
+                <input type="checkbox" name="area_1" id="area_1" class="form-check-input">
+                <label for="area_1" class="form-check-label">Logistics & Distribution</label>
+            </div>
+            <div class="custom-checkbox">
+                <input type="checkbox" name="area_2" id="area_2" class="form-check-input">
+                <label for="area_2" class="form-check-label">Inventory Management</label>
+            </div>
+            <div class="custom-checkbox">
+                <input type="checkbox" name="area_3" id="area_3" class="form-check-input">
+                <label for="area_3" class="form-check-label">Demand Forecasting</label>
+            </div>
+            <div class="custom-checkbox">
+                <input type="checkbox" name="area_4" id="area_4" class="form-check-input">
+                <label for="area_4" class="form-check-label">SCM Analytics</label>
+            </div>
+            <div class="custom-checkbox">
+                <input type="checkbox" name="area_5" id="area_5" class="form-check-input">
+                <label for="area_5" class="form-check-label">Excel & Data Management</label>
+            </div>
+
+            <button type="submit" class="btn btn-next">Next</button>
+            
+        </form>
+    </div>
+</body>
+</html>

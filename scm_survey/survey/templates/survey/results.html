@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Results</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        canvas {
+            max-width: 600px;
+            max-height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="radarChart"></canvas>
+    <script>
+        // Dynamic data passed from Django
+        const chartLabels = ['Logistics & Distribution', 'Inventory Management', 'Demand Forecasting', 'SCM Analytics', 'Excel & Data'];
+        const chartData = {{ data.values|safe }}; // Example: [85, 95, 60, 100, 90]
+        
+        // Calculate the average percentage
+        const avgPercentage = (chartData.reduce((a, b) => a + b, 0) / chartData.length).toFixed(0); // Rounded average
+    
+        // Create radar chart with dynamic data
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: chartLabels,
+                datasets: [{
+                    label: 'Survey Results',
+                    data: chartData,
+                    fill: true,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)', // Light red
+                    borderColor: 'rgba(255, 99, 132, 1)', // Dark red
+                    pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 2,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.raw}%`; // Show percentage in tooltip
+                            }
+                        }
+                    },
+                    legend: {
+                        display: false, // Hide the legend
+                    },
+                    // Custom plugin to add percentage in the center
+                    afterDraw: (chart) => {
+                        const { width } = chart;
+                        const ctx = chart.ctx;
+                        ctx.save();
+    
+                        ctx.font = "bold 24px Arial";
+                        ctx.fillStyle = "rgba(255, 99, 132, 1)";
+                        ctx.textAlign = "center";
+                        ctx.textBaseline = "middle";
+                        ctx.fillText(`${avgPercentage}%`, width / 2, width / 2); // Central percentage text
+    
+                        ctx.restore();
+                    },
+                },
+                scales: {
+                    r: {
+                        angleLines: { display: false },
+                        suggestedMin: 0,
+                        suggestedMax: 100,
+                        ticks: { display: true },
+                        grid: {
+                            color: 'rgba(0, 255, 0, 0.2)', // Custom grid color
+                        }
+                    }
+                },
+            },
+        });
+    </script>
+    </body>
+</html>
