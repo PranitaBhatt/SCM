@@ -40,55 +40,20 @@
     </style>
 </head>
 <body>
-    <div class="question-card">
-        <h1>What are the main goals of Supply Chain?</h1>
-        <form method="post">
-            {% csrf_token %}
-            <div class="custom-checkbox">
-                <input type="checkbox" name="option_1" id="option_1" class="form-check-input">
-                <label for="option_1" class="form-check-label">Maximizing company Sales</label>
-            </div>
-            <div class="custom-checkbox">
-                <input type="checkbox" name="option_2" id="option_2" class="form-check-input">
-                <label for="option_2" class="form-check-label">Maximizing company profits</label>
-            </div>
-            <div class="custom-checkbox">
-                <input type="checkbox" name="option_3" id="option_3" class="form-check-input">
-                <label for="option_3" class="form-check-label">Minimizing operational costs</label>
-            </div>
-            <div class="custom-checkbox">
-                <input type="checkbox" name="option_4" id="option_4" class="form-check-input">
-                <label for="option_4" class="form-check-label">Minimizing inventory costs</label>
-            </div>
-            <div class="custom-checkbox">
-                <input type="checkbox" name="option_5" id="option_5" class="form-check-input">
-                <label for="option_5" class="form-check-label">Ensuring the best service for customers</label>
-            </div>
-            <h1>Which areas of SCM do you think need improvement?</h1>
-            <div class="custom-checkbox">
-                <input type="checkbox" name="area_1" id="area_1" class="form-check-input">
-                <label for="area_1" class="form-check-label">Logistics & Distribution</label>
-            </div>
-            <div class="custom-checkbox">
-                <input type="checkbox" name="area_2" id="area_2" class="form-check-input">
-                <label for="area_2" class="form-check-label">Inventory Management</label>
-            </div>
-            <div class="custom-checkbox">
-                <input type="checkbox" name="area_3" id="area_3" class="form-check-input">
-                <label for="area_3" class="form-check-label">Demand Forecasting</label>
-            </div>
-            <div class="custom-checkbox">
-                <input type="checkbox" name="area_4" id="area_4" class="form-check-input">
-                <label for="area_4" class="form-check-label">SCM Analytics</label>
-            </div>
-            <div class="custom-checkbox">
-                <input type="checkbox" name="area_5" id="area_5" class="form-check-input">
-                <label for="area_5" class="form-check-label">Excel & Data Management</label>
-            </div>
-
-            <button type="submit" class="btn btn-next">Next</button>
-            
-        </form>
-    </div>
+    <div class="question-card"> 
+        <h1>{{ question.question_text }}</h1> 
+        <form method="post"> 
+            {% csrf_token %} 
+            {% for option in question.options %} 
+            <div class="custom-checkbox"> 
+                <input type="checkbox" name="option" id="option_{{ forloop.counter }}" class="form-check-input" value="{{ option.text }}"> 
+                <label for="option_{{ forloop.counter }}" class="form-check-label">{{ option.text }}</label> 
+            </div> {% endfor %} 
+            <input type="hidden" name="question_id" value="{{ question.id }}"> 
+            <button type="submit" class="btn btn-next">
+                {% if question_index == total_questions %}Submit{% else %}Next{% endif %}
+            </button> 
+            </form> 
+        </div>
 </body>
 </html>

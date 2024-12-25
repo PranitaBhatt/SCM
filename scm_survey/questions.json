@@ -1,0 +1,167 @@
+[
+    {
+      "id": 1,
+      "question_text": "What are the key challenges in last-mile delivery?",
+      "options": [
+        {"text": "Traffic congestion", "points": 5},
+        {"text": "Unpredictable demand", "points": 4},
+        {"text": "High labor costs", "points": 3},
+        {"text": "Lack of infrastructure", "points": 2}
+      ],
+      "category": "Logistics & Distribution"
+    },
+    {
+      "id": 2,
+      "question_text": "How can technology improve transportation efficiency?",
+      "options": [
+        {"text": "Telematics and GPS tracking", "points": 5},
+        {"text": "Route optimization software", "points": 4},
+        {"text": "Autonomous vehicles", "points": 3},
+        {"text": "Improved communication with drivers", "points": 2}
+      ],
+      "category": "Logistics & Distribution"
+    },
+    {
+      "id": 3,
+      "question_text": "What are the benefits of third-party logistics providers (3PLs)?",
+      "options": [
+        {"text": "Cost savings", "points": 5},
+        {"text": "Increased flexibility and scalability", "points": 4},
+        {"text": "Access to specialized expertise", "points": 3},
+        {"text": "Improved customer service", "points": 2}
+      ],
+      "category": "Logistics & Distribution"
+    },
+    {
+      "id": 4,
+      "question_text": "What are the key elements of effective inventory control?",
+      "options": [
+        {"text": "Accurate demand forecasting", "points": 5},
+        {"text": "Efficient order fulfillment", "points": 4},
+        {"text": "Regular inventory audits", "points": 3},
+        {"text": "Minimizing stockouts", "points": 2}
+      ],
+      "category": "Inventory Management"
+    },
+    {
+      "id": 5,
+      "question_text": "Explain the concept of Economic Order Quantity (EOQ).",
+      "options": [
+        {"text": "Optimal order size that minimizes total inventory costs", "points": 5},
+        {"text": "Method for valuing inventory", "points": 3},
+        {"text": "Technique for reducing lead times", "points": 2},
+        {"text": "System for tracking inventory movements", "points": 1}
+      ],
+      "category": "Inventory Management"
+    },
+    {
+      "id": 6,
+      "question_text": "How can technology improve inventory management?",
+      "options": [
+        {"text": "Warehouse Management Systems (WMS)", "points": 5},
+        {"text": "Radio Frequency Identification (RFID)", "points": 4},
+        {"text": "Data analytics and predictive modeling", "points": 3},
+        {"text": "Barcoding and scanning", "points": 2}
+      ],
+      "category": "Inventory Management"
+    },
+    {
+      "id": 7,
+      "question_text": "What are the key factors to consider when forecasting demand?",
+      "options": [
+        {"text": "Historical sales data", "points": 5},
+        {"text": "Economic conditions", "points": 4},
+        {"text": "Competitive activity", "points": 3},
+        {"text": "Consumer trends", "points": 2}
+      ],
+      "category": "Demand Forecasting"
+    },
+    {
+      "id": 8,
+      "question_text": "Explain the difference between qualitative and quantitative forecasting methods.",
+      "options": [
+        {"text": "Qualitative relies on expert opinion, while quantitative uses historical data", "points": 5},
+        {"text": "Both methods use the same data sources", "points": 2},
+        {"text": "Qualitative methods are more accurate", "points": 1},
+        {"text": "Quantitative methods are more expensive", "points": 3}
+      ],
+      "category": "Demand Forecasting"
+    },
+    {
+      "id": 9,
+      "question_text": "What are the potential risks associated with inaccurate demand forecasts?",
+      "options": [
+        {"text": "Excess inventory and increased holding costs", "points": 5},
+        {"text": "Stockouts and lost sales", "points": 4},
+        {"text": "Poor customer satisfaction", "points": 3},
+        {"text": "Increased transportation costs", "points": 2}
+      ],
+      "category": "Demand Forecasting"
+    },
+    {
+      "id": 10,
+      "question_text": "How can data analytics be used to improve supply chain performance?",
+      "options": [
+        {"text": "Identifying inefficiencies and bottlenecks", "points": 5},
+        {"text": "Predicting future demand and supply", "points": 4},
+        {"text": "Optimizing transportation routes", "points": 3},
+        {"text": "Improving inventory visibility", "points": 2}
+      ],
+      "category": "SCM Analytics"
+    },
+    {
+      "id": 11,
+      "question_text": "What are the key performance indicators (KPIs) used in supply chain analytics?",
+      "options": [
+        {"text": "On-time delivery rate", "points": 5},
+        {"text": "Inventory turnover", "points": 4},
+        {"text": "Customer satisfaction", "points": 3},
+        {"text": "Cost of goods sold", "points": 2}
+      ],
+      "category": "SCM Analytics"
+    },
+    {
+      "id": 12,
+      "question_text": "What are the benefits of using business intelligence tools in supply chain management?",
+      "options": [
+        {"text": "Data-driven decision making", "points": 5},
+        {"text": "Improved collaboration and communication", "points": 4},
+        {"text": "Increased visibility into supply chain operations", "points": 3},
+        {"text": "Reduced reliance on manual data entry", "points": 2}
+      ],
+      "category": "SCM Analytics"
+    },
+    {
+      "id": 13,
+      "question_text": "Which Excel function is used to calculate the sum of a range of cells?",
+      "options": [
+        {"text": "SUM", "points": 5},
+        {"text": "AVERAGE", "points": 2},
+        {"text": "COUNT", "points": 1},
+        {"text": "MAX", "points": 3}
+      ],
+      "category": "Excel & Data"
+    },
+    {
+      "id": 14,
+      "question_text": "How can you create a pivot table in Excel?",
+      "options": [
+        {"text": "Insert > PivotTable", "points": 5},
+        {"text": "Data > Sort & Filter", "points": 2},
+        {"text": "Formulas > Data Validation", "points": 1},
+        {"text": "Home > Conditional Formatting", "points": 3}
+      ],
+      "category": "Excel & Data"
+    },
+    {
+      "id": 15,
+      "question_text": "What is the purpose of using VLOOKUP in Excel?",
+      "options": [
+        {"text": "To search for a value in a table and return a corresponding value", "points": 5},
+        {"text": "To create charts and graphs", "points": 2},
+        {"text": "To format cells conditionally", "points": 1},
+        {"text": "To sort data alphabetically", "points": 3}
+      ],
+      "category": "Excel & Data"
+    }
+  ]

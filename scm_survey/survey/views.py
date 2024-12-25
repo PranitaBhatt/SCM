@@ -1,49 +1,82 @@
+import plotly.graph_objects as go
 from django.shortcuts import render, redirect
-from django.db.models import Count
-from .models import SurveyQuestion, SurveyResponse
+import json
+from django.conf import settings
+import os
+
+def load_questions():
+    with open(os.path.join(settings.BASE_DIR, 'questions.json'), 'r') as file:
+        questions = json.load(file)
+    return questions
 
 def survey_view(request):
-    if request.method == 'POST':
-        responses = []
-        for key in request.POST:
-            if key.startswith('option_'):
-                responses.append(request.POST[key])
-        # Save responses logic here
-        return redirect('results')
-    return render(request, 'survey/survey.html')
+    questions = load_questions()
+    total_questions = len(questions)
+    question_index = int(request.GET.get('q', 0))
 
+    # Ensure question index is within valid range
+    if question_index >= total_questions:
+        return redirect('results')
+
+    if request.method == 'POST':
+        selected_option = request.POST.get('option')
+        question_id = int(request.POST.get('question_id'))
+
+        # Store the answer in the session
+        if 'answers' not in request.session:
+            request.session['answers'] = {}
+        request.session['answers'][question_id] = selected_option
+
+        question_index += 1
+        if question_index < total_questions:
+            return redirect(f'/survey/?q={question_index}')
+        else:
+            return redirect('results')
+
+    current_question = questions[question_index]
+    return render(request, 'survey/survey.html', {
+        'question': current_question,
+        'question_index': question_index + 1,
+        'total_questions': total_questions
+    })
 
 def results_view(request):
-            selected_options=[]
-            chart_data = [0, 0, 0, 0, 0]  # Default data values
-            if request.method == "POST":
-             selected_options = [
-            "Maximizing company Sales" if request.POST.get("option_1") else "",
-            "Maximizing company profits" if request.POST.get("option_2") else "",
-            "Minimizing operational costs" if request.POST.get("option_3") else "",
-            "Minimizing inventory costs" if request.POST.get("option_4") else "",
-            "Ensuring the best service for customers" if request.POST.get("option_5") else "",
-            "Logistics & Distribution" if request.POST.get("area_1") else "",
-            "Inventory Management" if request.POST.get("area_2") else "",
-            "Demand Forecasting" if request.POST.get("area_3") else "",
-            "SCM Analytics" if request.POST.get("area_4") else "",
-            "Excel & Data Management" if request.POST.get("area_5") else "",
-        ]
-             selected_options = list(filter(None, selected_options))
-            
-             if "Logistics & Distribution" in selected_options:
-                   chart_data[0] = 85
-             if "Inventory Management" in selected_options:
-                  chart_data[1] = 95
-            if "Demand Forecasting" in selected_options:
-                 chart_data[2] = 60
-            if "SCM Analytics" in selected_options:
-                 chart_data[3] = 100
-            if "Excel & Data Management" in selected_options:
-                chart_data[4] = 90
-            data = {
-        "labels": ['Logistics & Distribution', 'Inventory Management', 'Demand Forecasting', 'SCM Analytics', 'Excel & Data'],
-        "values": chart_data,  # Dynamically generated values based on selected options
-            }
-            print(chart_data)
-            return render(request, 'survey/results.html', {'data': data, 'selected_options': selected_options})
+    answers = request.session.get('answers', {})
+    questions = load_questions()
+    question_dict = {q['id']: q for q in questions}
+
+    category_scores = {}
+
+    for question_id, selected_option in answers.items():
+        question = question_dict[int(question_id)]
+        category = question['category']
+        selected_option_points = next((option['points'] for option in question['options'] if option['text'] == selected_option), 0)
+        
+        if category not in category_scores:
+            category_scores[category] = 0
+        category_scores[category] += selected_option_points
+
+    labels = list(category_scores.keys())
+    values = list(category_scores.values())
+
+    fig = go.Figure()
+
+    fig.add_trace(go.Scatterpolar(
+        r=values,
+        theta=labels,
+        fill='toself',
+        name='Assessment Results'
+    ))
+
+    fig.update_layout(
+        polar=dict(
+            radialaxis=dict(
+                visible=True,
+                range=[0, max(values)]
+            )),
+        showlegend=False
+    )
+
+    chart_html = fig.to_html(full_html=False)
+
+    return render(request, 'survey/results.html', {'chart_html': chart_html})
