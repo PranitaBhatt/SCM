@@ -1,0 +1,265 @@
+{
+  "SCM Analytics": {
+    "0-20": {
+      "title": "Fundamentals of Data-Driven Supply Chain",
+      "description": "Start with the basics of data collection and analysis within the supply chain context.",
+      "tips": [
+        "Learn key supply chain metrics and how to interpret them.",
+        "Explore data visualization techniques to understand data trends.",
+        "Familiarize yourself with basic data analysis tools like Excel.",
+        "Start collecting relevant data from your current role or a case study."
+      ]
+    },
+    "21-40": {
+      "title": "Building a Data-Driven Foundation",
+      "description": "Focus on developing foundational data analysis skills.",
+      "tips": [
+        "Learn basic statistical concepts like mean, median, and standard deviation.",
+        "Practice data cleaning and preparation techniques.",
+        "Use data visualization tools to create insightful dashboards.",
+        "Explore basic data mining techniques."
+      ]
+    },
+    "41-60": {
+      "title": "Intermediate Data Analysis Skills",
+      "description": "Deepen your understanding of data analysis and its application in the supply chain.",
+      "tips": [
+        "Learn predictive modeling techniques like regression and time series analysis.",
+        "Explore data mining techniques like clustering and classification.",
+        "Use business intelligence tools for data exploration and analysis.",
+        "Develop skills in data storytelling and presentation."
+      ]
+    },
+    "61-80": {
+      "title": "Advanced Data Analysis and Application",
+      "description": "Apply advanced analytics to solve complex supply chain challenges.",
+      "tips": [
+        "Explore machine learning techniques for supply chain optimization.",
+        "Develop skills in data integration and big data analysis.",
+        "Work on real-world projects to apply your analytical skills.",
+        "Stay updated on the latest trends in supply chain analytics."
+      ]
+    },
+    "81-100": {
+      "title": "Supply Chain Analytics Expert",
+      "description": "You have a strong foundation in supply chain analytics.",
+      "tips": [
+        "Lead data analytics projects and mentor others.",
+        "Stay updated on the latest research and developments in the field.",
+        "Contribute to supply chain analytics through innovation and research.",
+        "Consider pursuing advanced certifications or degrees in data science."
+      ]
+    }
+  },
+  "Logistics & Distribution": {
+    "0-20": {
+      "title": "Logistics Fundamentals",
+      "description": "Gain a basic understanding of key logistics concepts and processes.",
+      "tips": [
+        "Learn about different modes of transportation (road, rail, air, sea).",
+        "Study warehousing principles and operations.",
+        "Explore the basics of supply chain networks and their components.",
+        "Read industry articles and case studies to gain practical insights."
+      ]
+    },
+    "21-40": {
+      "title": "Improving Logistics Efficiency",
+      "description": "Focus on improving efficiency in logistics operations.",
+      "tips": [
+        "Learn about route optimization and transportation planning.",
+        "Explore inventory management techniques for logistics.",
+        "Study best practices for warehouse layout and material handling.",
+        "Investigate the use of technology in logistics (e.g., GPS, telematics)."
+      ]
+    },
+    "41-60": {
+      "title": "Advanced Logistics Concepts",
+      "description": "Deepen your understanding of advanced logistics concepts and strategies.",
+      "tips": [
+        "Learn about supply chain risk management and mitigation strategies.",
+        "Explore sustainable logistics practices and green supply chains.",
+        "Investigate the role of technology in supply chain visibility and traceability.",
+        "Study international logistics and global supply chains."
+      ]
+    },
+    "61-80": {
+      "title": "Logistics Expertise",
+      "description": "You have a strong understanding of logistics principles and best practices.",
+      "tips": [
+        "Specialize in a specific area of logistics (e.g., transportation, warehousing, international logistics).",
+        "Stay updated on industry trends and technologies.",
+        "Consider professional certifications in logistics and supply chain management.",
+        "Engage in professional networking and industry events."
+      ]
+    },
+    "81-100": {
+      "title": "Logistics Leadership",
+      "description": "You are a logistics expert with in-depth knowledge and leadership skills.",
+      "tips": [
+        "Lead logistics teams and projects.",
+        "Develop and implement innovative logistics solutions.",
+        "Mentor and guide others in the field of logistics.",
+        "Contribute to research and development in logistics and supply chain management."
+      ]
+    }
+  },
+  "Inventory Management": {
+    "0-20": {
+      "title": "Fundamentals of Inventory Control",
+      "description": "Learn the basic concepts of inventory management and its importance.",
+      "tips": [
+        "Understand the costs associated with inventory (holding, ordering, shortage).",
+        "Learn about different inventory valuation methods.",
+        "Study basic inventory control techniques (e.g., FIFO, LIFO).",
+        "Practice manual inventory tracking and reconciliation."
+      ]
+    },
+    "21-40": {
+      "title": "Improving Inventory Efficiency",
+      "description": "Focus on improving inventory efficiency and reducing costs.",
+      "tips": [
+        "Learn about demand forecasting and its role in inventory planning.",
+        "Explore inventory optimization techniques (e.g., Economic Order Quantity - EOQ).",
+        "Implement basic inventory control systems and track key metrics.",
+        "Investigate the use of technology in inventory management (e.g., barcoding, RFID)."
+      ]
+    },
+    "41-60": {
+      "title": "Advanced Inventory Management Concepts",
+      "description": "Deepen your understanding of advanced inventory management principles.",
+      "tips": [
+        "Study lean manufacturing principles and their application to inventory management.",
+        "Explore just-in-time (JIT) inventory concepts and their implementation.",
+        "Learn about supply chain risk management related to inventory.",
+        "Investigate advanced inventory planning software and tools."
+      ]
+    },
+    "61-80": {
+      "title": "Inventory Management Expertise",
+      "description": "You have a strong understanding of inventory management best practices.",
+      "tips": [
+        "Lead inventory management projects and initiatives.",
+        "Specialize in a particular area of inventory management (e.g., inventory optimization).",
+        "Stay updated on the latest trends and technologies in inventory management.",
+        "Consider professional certifications in supply chain or inventory management."
+      ]
+    },
+    "81-100": {
+      "title": "Inventory Management Leadership",
+      "description": "You are an expert in inventory management with the ability to lead and innovate.",
+      "tips": [
+        "Develop and implement innovative inventory management strategies.",
+        "Mentor and guide others in inventory management best practices.",
+        "Contribute to the advancement of inventory management practices through research.",
+        "Lead and manage inventory teams and projects effectively."
+      ]
+    }
+  },
+
+    "Demand Forecasting": {
+      "0-20": {
+        "title": "Basic Demand Forecasting Concepts",
+        "description": "Learn the fundamentals of demand forecasting and its importance in the supply chain.",
+        "tips": [
+          "Understand different types of demand patterns (seasonal, trend, cyclical).",
+          "Explore basic forecasting methods like moving averages and simple exponential smoothing.",
+          "Gather historical sales data and learn how to analyze it.",
+          "Practice manual forecasting techniques."
+        ]
+      },
+      "21-40": {
+        "title": "Improving Demand Forecasting Accuracy",
+        "description": "Focus on improving the accuracy of your demand forecasts.",
+        "tips": [
+          "Learn more advanced forecasting methods like exponential smoothing and regression analysis.",
+          "Consider external factors influencing demand (e.g., economic conditions, competition).",
+          "Start using forecasting software or tools to improve efficiency.",
+          "Analyze forecast errors and identify areas for improvement."
+        ]
+      },
+      "41-60": {
+        "title": "Advanced Demand Forecasting Techniques",
+        "description": "Explore advanced forecasting techniques and their applications.",
+        "tips": [
+          "Learn about time series analysis and its applications in demand forecasting.",
+          "Explore machine learning techniques for demand forecasting (e.g., neural networks, ARIMA).",
+          "Understand causal forecasting and its importance in demand planning.",
+          "Develop skills in interpreting and communicating forecast results."
+        ]
+      },
+      "61-80": {
+        "title": "Demand Forecasting Expertise",
+        "description": "You have a strong understanding of demand forecasting principles and techniques.",
+        "tips": [
+          "Specialize in a particular area of demand forecasting (e.g., seasonal forecasting, long-term forecasting).",
+          "Stay updated on advancements in demand forecasting methodologies.",
+          "Contribute to the development and implementation of forecasting systems.",
+          "Mentor and guide others in demand forecasting techniques."
+        ]
+      },
+      "81-100": {
+        "title": "Demand Forecasting Leadership",
+        "description": "You are a leader in demand forecasting with advanced knowledge and expertise.",
+        "tips": [
+          "Develop and implement innovative forecasting solutions for complex supply chains.",
+          "Conduct research and publish findings on forecasting methodologies.",
+          "Lead forecasting teams and projects effectively.",
+          "Drive strategic decisions using data-driven demand forecasting insights."
+        ]
+      }
+    },
+    "Excel & Data": {
+      "0-20": {
+        "title": "Excel Fundamentals",
+        "description": "Start with the basics of using Excel for data entry and manipulation.",
+        "tips": [
+          "Master essential formulas like SUM, AVERAGE, COUNT, and VLOOKUP.",
+          "Learn to format data effectively (e.g., numbers, dates, text).",
+          "Practice creating basic charts and graphs.",
+          "Explore data entry and validation techniques."
+        ]
+      },
+      "21-40": {
+        "title": "Intermediate Excel Skills",
+        "description": "Expand your Excel skills with more advanced features.",
+        "tips": [
+          "Learn to create pivot tables and pivot charts for data analysis.",
+          "Explore conditional formatting and data validation rules.",
+          "Use functions like IF, SUMIF, and COUNTIF.",
+          "Practice data cleaning and transformation techniques."
+        ]
+      },
+      "41-60": {
+        "title": "Advanced Excel Techniques",
+        "description": "Deepen your Excel expertise with advanced functions and techniques.",
+        "tips": [
+          "Master advanced formulas like array formulas, LOOKUP functions, and data tables.",
+          "Learn to use macros and VBA to automate tasks.",
+          "Explore data analysis tools like Power Query and Power Pivot.",
+          "Practice data modeling and creating complex spreadsheets."
+        ]
+      },
+      "61-80": {
+        "title": "Excel Power User",
+        "description": "You have a strong foundation in Excel and can apply it effectively for data analysis.",
+        "tips": [
+          "Explore advanced data analysis techniques using Excel.",
+          "Learn to integrate Excel with other data sources and applications.",
+          "Share your Excel expertise with others through training or mentoring.",
+          "Stay updated on new Excel features and best practices."
+        ]
+      },
+      "81-100": {
+        "title": "Excel Mastery",
+        "description": "You are an Excel expert with advanced skills and a deep understanding of its capabilities.",
+        "tips": [
+          "Develop and share custom Excel solutions and templates.",
+          "Become a proficient user of Power Query and Power BI.",
+          "Explore advanced data analysis techniques using Excel and complementary tools.",
+          "Stay at the forefront of Excel advancements and share your knowledge with the community."
+        ]
+      }
+    }
+  }
+  
+
