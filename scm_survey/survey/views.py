@@ -5,7 +5,7 @@ import json
 import os
 from django.conf import settings
 from collections import defaultdict
-
+import plotly.express as px
 
 def load_questions():
     """Load questions from a JSON file."""
@@ -16,7 +16,6 @@ def load_questions():
         raise RuntimeError("Questions file not found. Ensure 'questions.json' exists.")
     except json.JSONDecodeError:
         raise RuntimeError("Invalid JSON format in 'questions.json'.")
-
 
 def survey_view(request):
     """Handle the survey view where questions are displayed one at a time."""
@@ -63,10 +62,8 @@ def survey_view(request):
         'total_questions': total_questions
     })
 
-
 def results_view(request):
-    """Display the results of the survey with a radar chart."""
-    # Retrieve the user's answers from the session
+    """Display the results of the survey with percentages in bar and line charts."""
     answers = request.session.get('answers', {})
     if not answers:
         return render(request, 'survey/results.html', {
@@ -74,76 +71,66 @@ def results_view(request):
             'error': 'No answers found. Please complete the survey first.'
         })
 
-    # Load all questions and create a lookup dictionary
     questions = load_questions()
     question_dict = {q['id']: q for q in questions}
 
-    # Initialize a dictionary to accumulate category scores
     category_scores = defaultdict(int)
+    total_points = 0
 
-    # Process each answer to calculate category scores
     for question_id, selected_option_text in answers.items():
         try:
-            question_id = int(question_id)  # Convert question ID to integer
+            question_id = int(question_id)
         except ValueError:
-            continue  # Skip invalid question IDs
+            continue
 
         question = question_dict.get(question_id)
         if question:
             category = question['category']
-            # Get the points for the selected option
             selected_option_points = next(
-                (option['points'] for option in question['options'] if option['text'] == selected_option_text),
-                0  # Default to 0 if the option is not found
+                (option['points'] for option in question['options'] if option['text'] == selected_option_text), 0
             )
             category_scores[category] += selected_option_points
+            total_points += selected_option_points
 
-    # Prepare data for the radar chart
-    labels = list(category_scores.keys())
-    values = list(category_scores.values())
+    # Convert raw scores to percentages
+    category_percentages = {
+        category: (score / total_points) * 100 for category, score in category_scores.items()
+    }
 
-    # Ensure the radar chart forms a closed polygon
-    if len(labels) > 2:
-        labels.append(labels[0])  # Repeat the first label
-        values.append(values[0])  # Repeat the first value
-
-    # Create the radar chart using Plotly
-    fig = go.Figure()
-    fig.add_trace(go.Scatterpolar(
-        r=values,
-        theta=labels,
-        fill='toself',
-        name='Assessment Results',
-        line=dict(color="red", width=2)
-    ))
-
-    # Customize the chart layout
-    fig.update_layout(
-        polar=dict(
-            bgcolor="#EAF6FF",
-            radialaxis=dict(
-                visible=True,
-                range=[0, max(values) + 5],  # Adjust range dynamically
-                showline=True,
-                linewidth=2,
-                linecolor="green",
-                gridcolor="lightgray"
-            ),
-            angularaxis=dict(
-                linewidth=2,
-                linecolor="darkgray"
-            ),
-        ),
-        title="Supply Chain Performance Radar",
-        title_x=0.5,
-        font=dict(size=16),
-        paper_bgcolor="lightblue"
+    # Bar chart: Percentages by category
+    bar_chart = px.bar(
+        x=list(category_percentages.keys()),
+        y=list(category_percentages.values()),
+        labels={"x": "Category", "y": "Percentage (%)"},
+        title="Survey Results by Category (in Percentage)",
+        color_discrete_sequence=["#FF5A5F"]
+    )
+    bar_chart.update_layout(
+        plot_bgcolor="white",
+        xaxis=dict(title=dict(font=dict(size=12))),
+        yaxis=dict(title=dict(font=dict(size=12)), gridcolor="lightgray"),
     )
 
-    # Generate HTML for the chart
-    chart_html = fig.to_html(full_html=False)
+    # Line chart (optional: if using time-series or other sequential data)
+    line_chart = go.Figure()
+    line_chart.add_trace(go.Scatter(
+        x=list(category_percentages.keys()),
+        y=list(category_percentages.values()),
+        mode="lines+markers",
+        line=dict(color="#FF5A5F", width=2),
+        marker=dict(size=6),
+        name="Category Percentage"
+    ))
+    line_chart.update_layout(
+        title="Percentage Distribution Across Categories",
+        plot_bgcolor="white",
+        xaxis=dict(gridcolor="lightgray"),
+        yaxis=dict(gridcolor="lightgray"),
+    )
 
-    # Render the results page
+    # Combine both charts into the result
+    chart_html = bar_chart.to_html(full_html=False) + line_chart.to_html(full_html=False)
+
     return render(request, 'survey/results.html', {
         'chart_html': chart_html
     })
