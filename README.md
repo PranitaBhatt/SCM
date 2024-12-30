@@ -2,18 +2,40 @@
 
 Setup Instructions
 
-Clone the Repository:
-git clone https://github.com/your-username/your-repository.git
 
-cd your-repository
+Setting up the Virtual Environment
 
-Install Dependencies Make sure you have Python and pip installed. 
-Install the required packages using:
+Open a terminal/command prompt and navigate to your project directory.
+
+Create a virtual environment using the following command:
+
+python -m venv venv
+
+Activate the virtual environment:
+
+On Windows:
+
+venv\Scripts\activate
+
+On macOS/Linux:
+
+source venv/bin/activate
+
+Once activated, your terminal will show the virtual environment name (e.g., (venv)).
+
+Installing Dependencies
+
+Install all required Python packages using:
+
 pip install -r requirements.txt
 
-Run the Server Start the Django development server:
+Running the Project
+
+Start the Development Server:
+Run the following command to start the Django development server:
+
 python manage.py runserver
 
-Access the Application Open your browser and navigate to:
-http://127.0.0.1:8000/survey/
+Access the Application:
+Open your web browser and go to http://127.0.0.1:8000/ to interact with the application.
 
