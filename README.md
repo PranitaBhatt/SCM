@@ -4,9 +4,11 @@ Setup Instructions
 
 Clone the Repository:
 git clone https://github.com/your-username/your-repository.git
+
 cd your-repository
 
-Install Dependencies Make sure you have Python and pip installed. Install the required packages using:
+Install Dependencies Make sure you have Python and pip installed. 
+Install the required packages using:
 pip install -r requirements.txt
 
 Run the Server Start the Django development server:
