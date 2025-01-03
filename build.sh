@@ -1,15 +1,19 @@
 #!/bin/bash
-# Ensure pip and Python are available
-if ! command -v pip &> /dev/null
-then
-    echo "pip could not be found"
-    exit 1
-fi
 
+# Ensure Python is installed
 if ! command -v python3 &> /dev/null
 then
-    echo "python3 could not be found"
-    exit 1
+    echo "python3 could not be found, installing..."
+    apt-get update
+    apt-get install -y python3
+fi
+
+# Ensure pip is installed
+if ! command -v pip &> /dev/null
+then
+    echo "pip could not be found, installing..."
+    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    python3 get-pip.py
 fi
 
 # Install dependencies
@@ -20,7 +24,7 @@ python3 manage.py collectstatic --noinput
 
 # Create Vercel-compatible output directory
 mkdir -p .vercel/output/static
-cp -r staticfiles/. .vercel/output/static/
+cp -r staticfiles/ .vercel/output/static/
 
 # Run migrations
 python3 manage.py makemigrations
