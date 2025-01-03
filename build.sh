@@ -8,7 +8,11 @@ then
     apt-get install -y python3
 fi
 
-# Ensure pip is installed
+# Create and activate a virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Ensure pip is installed within the virtual environment
 if ! command -v pip &> /dev/null
 then
     echo "pip could not be found, installing..."
@@ -29,3 +33,6 @@ cp -r staticfiles/ .vercel/output/static/
 # Run migrations
 python3 manage.py makemigrations
 python3 manage.py migrate
+
+# Deactivate the virtual environment
+deactivate
