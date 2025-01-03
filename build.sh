@@ -50,9 +50,5 @@ cp survey/suggestions.json ../.vercel/output/data/
 mkdir -p ../.vercel/output/static
 cp -r ../staticfiles/. ../.vercel/output/static/
 
-# Run migrations
-python3 manage.py makemigrations
-python3 manage.py migrate
-
 # Deactivate the virtual environment
 deactivate
