@@ -26,6 +26,12 @@ pip install -r requirements.txt
 # Collect static files
 python3 manage.py collectstatic --noinput
 
+# Ensure the static files directory exists and is not empty
+if [ ! -d "staticfiles" ] || [ -z "$(ls -A staticfiles)" ]; then
+    echo "staticfiles directory is empty or does not exist."
+    exit 1
+fi
+
 # Create Vercel-compatible output directory
 mkdir -p .vercel/output/static
 cp -r staticfiles/. .vercel/output/static/
