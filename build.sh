@@ -23,18 +23,27 @@ fi
 # Install dependencies
 pip install -r requirements.txt
 
+# Navigate to the directory containing manage.py
+cd scm_survey  # Change to the directory where manage.py is located
+
+# Ensure manage.py exists
+if [ ! -f "manage.py" ]; then
+    echo "manage.py not found."
+    exit 1
+fi
+
 # Collect static files
 python3 manage.py collectstatic --noinput
 
 # Ensure the static files directory exists and is not empty
-if [ ! -d "staticfiles" ] || [ -z "$(ls -A staticfiles)" ]; then
+if [ ! -d "../staticfiles" ] || [ -z "$(ls -A ../staticfiles)" ]; then
     echo "staticfiles directory is empty or does not exist."
     exit 1
 fi
 
 # Create Vercel-compatible output directory
-mkdir -p .vercel/output/static
-cp -r staticfiles/. .vercel/output/static/
+mkdir -p ../.vercel/output/static
+cp -r ../staticfiles/. ../.vercel/output/static/
 
 # Run migrations
 python3 manage.py makemigrations
