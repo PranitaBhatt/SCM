@@ -15,8 +15,8 @@
       }
     }
   ],
-  "env": [{ "DJANGO_SETTINGS_MODULE": "scm_survey.settings"
-    }],
+  "env": { "DJANGO_SETTINGS_MODULE": "scm_survey.settings"
+    },
   "routes": [
     {
       "src": "/static/(.*)",
