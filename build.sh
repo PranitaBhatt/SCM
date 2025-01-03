@@ -36,8 +36,13 @@ fi
 python3 manage.py collectstatic --noinput
 
 # Ensure the static files directory exists and is not empty
-if [ ! -d "../staticfiles" ] || [ -z "$(ls -A ../staticfiles)" ]; then
-    echo "staticfiles directory is empty or does not exist."
+if [ ! -d "../staticfiles" ]; then
+    echo "staticfiles directory does not exist."
+    exit 1
+fi
+
+if [ -z "$(ls -A ../staticfiles)" ]; then
+    echo "staticfiles directory is empty."
     exit 1
 fi
 

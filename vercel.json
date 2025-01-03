@@ -4,7 +4,8 @@
     {
       "src": "build.sh",
       "use": "@vercel/static-build",
-      "config": { "distDir": ".vercel/output/static" }
+      "config": { 
+        "distDir": ".vercel/output/static" }
     },
     {
       "src": "scm_survey/wsgi.py",
