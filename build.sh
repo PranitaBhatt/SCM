@@ -41,6 +41,11 @@ if [ ! -d "../staticfiles" ] || [ -z "$(ls -A ../staticfiles)" ]; then
     exit 1
 fi
 
+# Copy JSON files to the output directory
+mkdir -p ../.vercel/output/data
+cp survey/questions.json ../.vercel/output/data/
+cp survey/suggestions.json ../.vercel/output/data/
+
 # Create Vercel-compatible output directory
 mkdir -p ../.vercel/output/static
 cp -r ../staticfiles/. ../.vercel/output/static/
