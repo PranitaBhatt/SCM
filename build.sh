@@ -32,6 +32,9 @@ if [ ! -f "manage.py" ]; then
     exit 1
 fi
 
+# Ensure static directory exists
+mkdir -p static
+
 # Collect static files
 python3 manage.py collectstatic --noinput
 
