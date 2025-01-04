@@ -27,5 +27,13 @@
       "src": "/(.*)",
       "dest": "scm_survey/wsgi.py"
     }
-  ]
+  ],
+  
+    "rewrites": [
+      {
+        "source": "/(.*)",
+        "destination": "/"
+      }
+    ]
+  
 }
