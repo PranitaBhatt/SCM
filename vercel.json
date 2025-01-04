@@ -4,8 +4,9 @@
     {
       "src": "build.sh",
       "use": "@vercel/static-build",
-      "config": { 
-        "distDir": ".vercel/output/static" }
+      "config": {
+        "distDir": ".vercel/output/static"
+      }
     },
     {
       "src": "scm_survey/wsgi.py",
@@ -16,24 +17,14 @@
       }
     }
   ],
-  "env": { "DJANGO_SETTINGS_MODULE": "scm_survey.settings"
-    },
-  "routes": [
+  "env": {
+    "DJANGO_SETTINGS_MODULE": "scm_survey.settings",
+    "SECRET_KEY": "your_secret_key"
+  },
+  "rewrites": [
     {
-      "src": "/static/(.*)",
-      "dest": "/staticfiles/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "scm_survey/wsgi.py"
+      "source": "/(.*)",
+      "destination": "/"
     }
-  ],
-  
-    "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/"
-      }
-    ]
-  
+  ]
 }
