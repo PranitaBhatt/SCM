@@ -35,6 +35,9 @@ fi
 # Ensure static directory exists
 mkdir -p static
 
+# Ensure sessions directory exists
+mkdir -p ../sessions
+
 # Collect static files
 python3 manage.py collectstatic --noinput
 
