@@ -32,16 +32,22 @@ if [ ! -f "manage.py" ]; then
     exit 1
 fi
 
+# Ensure static directory exists
+mkdir -p static
+
+# Ensure sessions directory exists
+mkdir -p ../sessions
+
 # Collect static files
 python3 manage.py collectstatic --noinput
 
 # Ensure the static files directory exists and is not empty
-if [ ! -d "../staticfiles" ]; then
+if [ ! -d "staticfiles" ]; then
     echo "staticfiles directory does not exist."
     exit 1
 fi
 
-if [ -z "$(ls -A ../staticfiles)" ]; then
+if [ -z "$(ls -A staticfiles)" ]; then
     echo "staticfiles directory is empty."
     exit 1
 fi
@@ -53,7 +59,7 @@ cp survey/suggestions.json ../.vercel/output/data/
 
 # Create Vercel-compatible output directory
 mkdir -p ../.vercel/output/static
-cp -r ../staticfiles/. ../.vercel/output/static/
+cp -r staticfiles/. ../.vercel/output/static/
 
 # Deactivate the virtual environment
 deactivate
